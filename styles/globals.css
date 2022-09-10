@@ -1,26 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-family:'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.animate-smoke{
+  animation: smoke 3s linear 1;
+  animation-fill-mode: forwards;
+}
+
+@layer components{
+  .nav-link{
+    @apply font-bold px-4 py-2 text-sm text-inherit hover:shadow-md hover:no-underline hover:rounded-md transition hover:scale-105 active:shadow-inner
   }
-  body {
-    color: white;
-    background: black;
+}
+
+@keyframes smoke {
+  to{
+    opacity: 0;
+    transform: translate(200px,-200px) scale(4) rotate(720deg);
+    filter: blur(10px) drop-shadow(16px 16px 20px white) brightness(2);
+    font-weight: 900;
   }
 }
